@@ -1,21 +1,18 @@
-anorexia <- read.table(file = "/home/gabina/Facultad/Probabilidad y Estadísitca/2020/anorexia.data", sep = "\t", header = TRUE)
+anorexia <- read.table(file = "anorexia.data", sep = "\t", header = TRUE)
 
 names(anorexia)[4] = "Visitas"
-ls()
-?remove
-remove(df)
-getwd()
-setwd("/home/gabina/Facultad/Probabilidad y Estadísitca/2020")
-read.table("anorexia.data",sep="\t")
+#getwd()
+#setwd("/home/gabina/Facultad/Probabilidad y Estadísitca/2020")
+#read.table("anorexia.data",sep="\t")
 
-tabla1 <- table(anorexia$Signo,anorexia$Sexo)
-sum(tabla1)
+#tabla1 <- table(anorexia$Signo,anorexia$Sexo)
+#sum(tabla1)
 attach(anorexia)
 
 t <- rbind(table(Signo,Sexo),apply(tabla1, 2,FUN = sum))
 cbind(t, apply(t,1,FUN=sum))
 
-vis <- table(Núm.de.visitas)
+vis <- table(Visitas)
 vis <- as.data.frame(vis)
 vis[3] = round(vis[2] / 59,digits=4)
 vis[4] <- cumsum(vis[2])
@@ -70,17 +67,27 @@ plot(0:6,vcum, "s", ylim = c(0,1), ylab = "Frecuencia relativa acumulada", xlab 
 mtext(side=1,"Fuente: Asociación de Lucha contra la Bulimia y la Anorexia" , line = 4.5, at=1., cex = 0.7)
 
 #histograma para edad
-hist(Edad,breaks= seq(11,36,by=3), xlim = c(11,36), right = FALSE, axes = FALSE)
+png("hist.png")
+par(mar=c(6,5,5,5))
+hist(Edad,breaks= seq(11,36,by=3), xlim = c(11,36), right = FALSE, axes = FALSE,
+ylab = "Frecuencia absoluta", xlab = "Edad", font.lab = 2,
+mgp=c(2.5,2,0), col = "lightpink",
+main = "EDAD DE LOS PACIENTES CON ANOREXIA\n ARGENTINA, OCTUBRE 2012")
 axis(side = 1, at =seq(11,36,by=3) )   
 axis(side = 2, at= seq(0,20, by =5)) 
+mtext(side=1,"Fuente: Asociación de Lucha contra la Bulimia y la Anorexia" , line = 4, 
+at=14, cex = 0.7)
+dev.off()
 
 #polígono de frecuencias para edad
+png("frecuencia.png")
+e <- as.vector(t(ed[2]))
 plot(seq(11,36,by=3),c(0,e)/59,"l",axes=FALSE, xlab = "Edad", ylab = "Frecuencia relativa")
 axis(side = 1, at =seq(11,36,by=3) )   
 axis(side = 2, at= seq(0,0.5, by =0.1)) 
+dev.off()
 
 #acumulativo para edad
-e <- as.vector(t(ed[2]))
 plot(seq(11,36,by=3),c(0,cumsum(e)/59),"l",axes=FALSE, xlab = "Edad", ylab = "Frecuencia relativa acumulada")
 axis(side = 1, at =seq(11,36,by=3) )   
 axis(side = 2, at= seq(0,1, by =0.2)) 
