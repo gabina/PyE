@@ -1,0 +1,279 @@
+\documentclass{prob}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[spanish,activeacute]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{latexsym}
+\usepackage{verbatim}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{hyperref} % \url
+\usepackage{subfig} % \subfloat
+
+% tikz
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,fit,backgrounds,calc,intersections}
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+% scale tikz
+\usepackage{tikzscale}
+
+\logo{unr2}
+\practica{\\ Programación en R}
+
+
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\nat}{\mathbb{N}}
+
+
+\begin{document}
+\maketitle
+
+Esta práctica fue realizada con el objetivo de que los estudiantes se familiaricen con la herramienta R y tengan un primer acercamiento a la manipulación de datos y a la generación de gráficos adecuados.
+
+\section*{Introducción}
+    \begin{problema}
+	Una de las primeras tareas a realizar será leer una base de datos proveniente de un archivo. En general, los datos son muchos y no es práctico ingresarlos manualmente. En este caso, se trabajará con el archivo \textit{anorexia.data}\footnote{Disponible para descargar en el sitio de comunidades.}. Dicha base de datos corresponde a una recolección de datos que hizo la \textquotedblleft Asociación de Lucha contra la Bulimia y la Anorexia\textquotedblright durante el mes de octubre del año 2012. La información es acerca de 59 personas con síntomas de anorexia que se habían acercado a la institución en busca de ayuda durante los primeros nueve meses de ese año. Las variables utilizadas son \textquotedblleft Sexo\textquotedblright, \textquotedblleft Cantidad de visitas\textquotedblright , \textquotedblleft Edad \textquotedblright y \textquotedblleft Principal signo visible\textquotedblright (0 - dieta severa, 1 - hiperactividad, 2 - uso de laxantes, 3 - uso de ropa holgada).
+	
+	\begin{parte}
+    	Abra la base de datos con algún editor de texto.\footnote{Esto es recomendable hacerlo únicamente si el archivo tiene un tamaño razonable.} ¿De qué tamaño es la muestra? ¿Cuántas variables se encuentran? ¿Cómo se llaman? ¿De qué tipo son? ¿Cómo está separada una columna de otra?
+    \end{parte}
+ 
+	\begin{parte}
+    	Lea la base de datos desde R. \\
+		
+		\noindent\fbox{%
+    \parbox{\textwidth}{%
+    	\textbf{Ayuda:} puede ser útil buscar la documentación de la función \textit{read.table()}. ¿Qué argumentos toma? ¿De qué clase es lo que retorna?
+    }%
+}	
+
+    \end{parte}
+        	
+    \end{problema}
+
+    \begin{problema}
+	Una vez cargada la base de datos, se deben proveer formas de trabajar con las distintas variables. Una manera muy sencilla de acceder a todos los valores de una variable es a través del operador \textit{\$}:.
+	\begin{verbatim}
+	    > dataframe_name$variable_name	
+	\end{verbatim}
+Sin embargo, la notación \$ puede no resultar tan conveniente. La función \textit{attach()} toma una base de datos (una lista o un  \textit{data frame}) como argumento y hace temporalmente visible sus componentes como variables. La función \textit{detach()} revierte dicho proceso.
+	\begin{verbatim}
+	    > attach(dataframe_name)
+	    > variable_name	
+	\end{verbatim}        	
+
+	\begin{parte}
+    	Teniendo en cuenta lo explicado anteriormente, acceda a los contenidos de cada una de las variables por separado. Por ejemplo, para la variable \textquotedblleft Sexo\textquotedblright debería lograr un output similar al siguiente:
+    	\begin{verbatim}
+        [1] F F F F F F F F F F F F F F F F F F F F F F F F F
+       [26] F F F F F F F F F F F F M M M M M M M M M M M M M
+       [51] M M M M M M M M M
+       Levels: F M
+    	\end{verbatim}
+    \end{parte}
+
+	\begin{parte}
+		Utilizando la función \textit{class()}, averigue de qué clase es cada variable.   
+    \end{parte}
+
+	\begin{parte}
+		Cuente la cantidad de mujeres y de hombres que hay en la base de datos.\\
+		
+	\noindent\fbox{%
+    \parbox{\textwidth}{%
+		\textbf{Ayuda:} puede ser útil buscar la documentación de la función \textit{summary()}.
+    }%
+}	
+		
+    \end{parte}
+    
+	\begin{parte}
+		Calcule la edad máxima, la mínima y el promedio de todas las edades.\\
+			
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+	 \textbf{Ayuda:} puede ser útil buscar la documentación de las funciones \textit{summary(), sum(), length(), mean()}.
+    }%
+}			
+
+    \end{parte}    
+    \end{problema}
+ 
+\section*{Tablas de frecuencia}    
+    \begin{problema}
+    En el caso de las variables cuantitativas, antes de presentar distintos gráficos, puede ser útil resumir los datos en tablas de frecuencias como las que se ejemplifican a continuación en la Figura~\ref{fig:tabla2} y en la Figura~\ref{fig:tabla3}.
+    
+    \begin{figure}[!ht]
+    \centering
+    
+    \fbox{\includegraphics[width=0.55\textwidth]{tabla2.png}}
+    \caption{Número de visitas}
+    \label{fig:tabla2}
+	\end{figure}
+
+    \begin{figure}[!ht]
+    \centering
+    
+    \fbox{\includegraphics[width=0.55\textwidth]{tabla3.png}}
+    \caption{Edad de los pacientes}
+    \label{fig:tabla3}
+	\end{figure}
+	
+	\begin{parte}
+		Realice la tabla de frecuencias para la variable \textquotedblleft Número de visitas\textquotedblright como se muestra en la Figura~\ref{fig:tabla2} . \\
+	
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+		 \textbf{Ayuda:} puede ser útil buscar la documentación de las funciones \textit{table(), cumsum(), cbind(), rbind(), round(), names()}.
+    }%
+}	
+	\end{parte}
+	
+	\begin{parte}
+		Realice la tabla de frecuencias para la variable \textquotedblleft Edad \textquotedblright como se muestra en la Figura~\ref{fig:tabla3}. ¿Por qué en la fila de esta tabla se encuentran rangos etarios en lugar de valores únicos? \\		
+		
+		\noindent\fbox{%
+    \parbox{\textwidth}{%
+		 \textbf{Ayuda:} puede ser útil buscar la documentación de las funciones \textit{cut(), table(), cumsum(), cbind(), rbind(), round(), names()}.
+    }%
+}	
+
+	\end{parte}
+		
+    \end{problema}
+        
+    \begin{problema}
+    Muchas veces es interesante cruzar variables de modo de obtener análisis bivariados. Por ejemplo, en la Figura~\ref{fig:ej3} se presenta una tabla del principal signo visible según el sexo. Observar que en este caso se trata de dos variables cualitativas.\\
+\begin{figure}[!ht]
+    \centering
+    
+    \fbox{\includegraphics[width=0.45\textwidth]{ej2.png}}
+    \caption{Principal signo visible según el sexo}
+    \label{fig:ej3}
+\end{figure}
+
+	Encuentre la forma de cruzar las variables mencionadas de modo de obtener el contenido de la tabla anterior.\\
+	
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+ \textbf{Ayuda:} puede ser útil buscar la documentación de las funciones \textit{table(), apply(), cbind(), rbind()}.
+    }%
+}	
+	
+	\end{problema}
+\section*{Gráficos}
+Las comodidades para la realización de gráficos son un componente importante y extremadamente versatil del entorno R. Es posible usarlas para producir una amplia variedad de gráficos estadísticos predeterminados así como para construir nuevas clases.
+
+	\begin{problema}
+	Uno de los tipos de gráficos más utilizados para resumir variables cualitativas es el \textit{diagrama de sectores circulares} o \textit{gráfico de torta}. En la Figura~\ref{fig:plot01} se presenta un ejemplo para la variable \textquotedblleft Principal signo visible\textquotedblright.\\
+
+\begin{figure}[!ht]
+    \centering
+    
+    \fbox{\includegraphics[width=0.6\textwidth]{Rplot01.png}}
+    \caption{Principal signo visible}
+    \label{fig:plot01}
+\end{figure}
+
+	\begin{parte}
+		Lea la documentación de la función \textit{pie()}. ¿Cuál es el significado de los argumentos \textit{x, labels, clockwise, init.angle} y \textit{main}?
+	\end{parte}
+
+	\begin{parte}
+		Realice una primera versión del gráfico de sectores para la variable mencionada, utilizando los argumentos vistos anteriormente. No se preocupe si el gráfico aún no se ve como lo espera.
+	\end{parte}	
+	
+	\begin{parte}	
+	En este tipo de gráficos es importante incluir los porcentajes de cada categoría, porque no siempre es claro visualmente si un sector es mayor, menor o igual a otro. Realice una segunda versión del gráfico que tenga en cuenta esto.\\		
+		
+		\noindent\fbox{%
+    \parbox{\textwidth}{%
+		 \textbf{Ayuda:} puede ser útil buscar la documentación de la función \textit{paste()}, y generar un nuevo vector de etiquetas que, además del nombre de cada categoría, contenga el porcentaje que corresponde a cada una.
+    }%
+}	
+	\end{parte}	
+	
+	\begin{parte}
+		R provee funciones de graficado llamadas \textit{de bajo nivel} que permiten agregar más información a un gráfico ya existente, como líneas, puntos o etiquetas. Una de ellas es \textit{mtext}, utilizada para escribir texto en los márgenes de un gráfico. Busque la documentación de dicha función. ¿Cuaĺ es el significado de los argumentos \textit{text, side, line, at, adj, cex} y \textit{font}? 
+	\end{parte}
+	
+	\begin{parte}
+		Realice una tercera versión del gráfico de sectores, utilizando la función estudiada anteriormente.
+	\end{parte}
+	
+	\begin{parte}
+		Por último, R provee una función \textit{par()} utilizada para setear permanentemente o consultar todos los parámetros gráficos. Puede obtener una lista con sus nombres y valores simplemente haciendo:
+		\begin{verbatim}
+		    > par()
+		\end{verbatim}
+	Si bien estos parámetros son muchos y no es necesario conocerlos todos, puede ser útil buscar entre ellos cuando se quiera modificar un aspecto particular de los gráficos. Por ejemplo, es posible que le sea conveniente cambiar los valores del parámetro \textit{mar}, para definir márgenes adecuados en sus gráficos. \\
+	
+	\textbf{Aclaración:} algunos parámetros específicos de \textit{par()} pueden pasarse directamente como parámetros en la llamada a la función que grafica. Por ejemplo, es válido hacer lo siguiente:
+	\begin{verbatim}
+	    > pie(table(Sexo), cex = 0.7,...)
+	\end{verbatim}
+\medskip	
+	Busque la documentación de la función \textit{par()}. ¿Cuántos parámetros gráficos se pueden setear o consultar a través de ella? ¿Para qué sirve el parámetro \textit{cex}?
+	\end{parte}
+		
+	\begin{parte}	
+	Realice una última versión del gráfico de sectores que se vea similar al que se muestra en la Figura~\ref{fig:plot01}.
+	\end{parte}
+
+	\end{problema}
+	
+	\begin{problema}
+	Otro de los tipos de gráficos más utilizados para variables cualitativas es el \textit{gráfico de barras}. En la Figura~\ref{fig:plot02} se presenta un ejemplo, nuevamente para la variable \textquotedblleft Principal signo visible\textquotedblright.\\
+	
+\begin{figure}[!ht]
+    \centering
+    
+    \fbox{\includegraphics[width=0.6\textwidth]{Rplot02.png}}
+    \caption{Principal signo visible}
+    \label{fig:plot02}
+\end{figure}	
+	
+	\begin{parte}
+		Lea la documentación de la función \textit{barplot()}. ¿Cuál es el significado de los argumentos \textit{height, horiz, xlab, ylab, xlim, cex.axis} y \textit{cex.names}?
+	\end{parte}	
+	
+	\begin{parte}
+	Realice una primera versión del gráfico de barras para la variable mencionada, utilizando todo lo visto anteriormente. No se preocupe si el gráfico aún no se ve como lo espera.	
+	\end{parte}
+	
+	\begin{parte}
+	Para lograr una mejor percepción visual, las categorías en los gráficos de barras suelen ordenarse de forma creciente o decreciente. Realice una segunda versión del gráfico de barras teniendo en cuenta esto. \\
+	
+	\noindent\fbox{%
+    \parbox{\textwidth}{%
+		 \textbf{Ayuda:} puede ser útil buscar la documentación de la función \textit{order()}.
+    }%
+}	
+	\end{parte}
+	
+	\begin{parte}
+	Setee los parámetros gráficos necesarios y realice una última versión del gráfico que se vea similar al que se presenta en la Figura~\ref{fig:plot02}.
+	\end{parte}	
+	\end{problema}
+	
+	\begin{problema}
+	Un gráfico de barras compuesto permite comparar resultados para diferentes grupos. Por ejemplo, en la Figura~\ref{fig:plot03} se puede visualizar el principal signo visible según el sexo del paciente.
+\begin{figure}[!ht]
+    \centering
+    
+    \fbox{\includegraphics[width=0.6\textwidth]{Rplot03.png}}
+    \caption{Principal signo visible}
+    \label{fig:plot03}
+\end{figure}	
+	\end{problema}
+
+	Realice un gráfico similar, teniendo en cuenta cómo se utiliza la función \textit{barplot()} cuando el argumento \textit{height} es una matriz. 
+
+\end{document}
