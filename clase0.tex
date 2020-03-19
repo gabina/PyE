@@ -35,7 +35,7 @@
 \begin{document}
 \maketitle
 
-Esta práctica fue realizada con el objetivo de que los estudiantes se familiaricen con la herramienta R y tengan un primer acercamiento a la manipulación de datos y a la generación de gráficos adecuados.
+Esta práctica fue realizada con el objetivo de que los estudiantes tengan un primer acercamiento a la manipulación de datos y a la generación de gráficos adecuados con R, que les será útil para la realización del Trabajo Práctico de Estadística Descriptiva. No es una introducción exhaustiva de la herramienta ni pretende serlo. A lo largo de la práctica se irá guiando al estudiante a la búsqueda y uso de funciones particulares que ayudarán a familiarizarse con el entorno.
 
 \section*{Introducción}
     \begin{problema}
@@ -169,7 +169,14 @@ Sin embargo, la notación \$ puede no resultar tan conveniente. La función \tex
 	
 	\end{problema}
 \section*{Gráficos}
-Las comodidades para la realización de gráficos son un componente importante y extremadamente versatil del entorno R. Es posible usarlas para producir una amplia variedad de gráficos estadísticos predeterminados así como para construir nuevas clases.
+Las comodidades para la realización de gráficos son un componente importante y extremadamente versatil del entorno R. Es posible usarlas para producir una amplia variedad de gráficos estadísticos predeterminados así como para construir nuevas clases.\\
+A modo general, puede decirse que los comandos de ploteo en R se dividen principalmente en tres grupos:
+\begin{itemize}
+	\item Alto nivel: crean un nuevo gráfico, posiblemente con títulos, etiquetas, ejes, etc.
+	\item Bajo nivel: agregan información a un gráfico ya existente. Por ejemplo: líneas, etiquetas o puntos.
+	\item Interactivos: permiten agregar o extraer información interactivamente desde un gráfico ya existente. No serán vistos en esta práctica.
+\end{itemize}
+Además, R mantiene una lista de parámetros gráficos, los cuales pueden ser manipulados para personalizar los gráficos. A continuación se trabajará con estos conceptos.
 
 	\begin{problema}
 	Uno de los tipos de gráficos más utilizados para resumir variables cualitativas es el \textit{diagrama de sectores circulares} o \textit{gráfico de torta}. En la Figura~\ref{fig:plot01} se presenta un ejemplo para la variable \textquotedblleft Principal signo visible\textquotedblright.\\
@@ -201,7 +208,7 @@ Las comodidades para la realización de gráficos son un componente importante y
 	\end{parte}	
 	
 	\begin{parte}
-		R provee funciones de graficado llamadas \textit{de bajo nivel} que permiten agregar más información a un gráfico ya existente, como líneas, puntos o etiquetas. Una de ellas es \textit{mtext}, utilizada para escribir texto en los márgenes de un gráfico. Busque la documentación de dicha función. ¿Cuaĺ es el significado de los argumentos \textit{text, side, line, at, adj, cex} y \textit{font}? 
+		Como se mencionó anteriormente, R provee funciones de graficado llamadas \textit{de bajo nivel} que permiten agregar más información a un gráfico ya existente, como líneas, puntos o etiquetas. Una de ellas es \textit{mtext}, utilizada para escribir texto en los márgenes de un gráfico. Busque la documentación de dicha función. ¿Cuaĺ es el significado de los argumentos \textit{text, side, line, at, adj, cex} y \textit{font}? 
 	\end{parte}
 	
 	\begin{parte}
@@ -215,7 +222,7 @@ Las comodidades para la realización de gráficos son un componente importante y
 		\end{verbatim}
 	Si bien estos parámetros son muchos y no es necesario conocerlos todos, puede ser útil buscar entre ellos cuando se quiera modificar un aspecto particular de los gráficos. Por ejemplo, es posible que le sea conveniente cambiar los valores del parámetro \textit{mar}, para definir márgenes adecuados en sus gráficos. \\
 	
-	\textbf{Aclaración:} algunos parámetros específicos de \textit{par()} pueden pasarse directamente como parámetros en la llamada a la función que grafica. Por ejemplo, es válido hacer lo siguiente:
+	\textbf{Aclaración:} algunos parámetros específicos de \textit{par()} pueden pasarse directamente como parámetros en la llamada a la función de alto nivel que grafica. Por ejemplo, es válido hacer lo siguiente:
 	\begin{verbatim}
 	    > pie(table(Sexo), cex = 0.7,...)
 	\end{verbatim}
@@ -272,8 +279,141 @@ Las comodidades para la realización de gráficos son un componente importante y
     \caption{Principal signo visible}
     \label{fig:plot03}
 \end{figure}	
-	\end{problema}
 
 	Realice un gráfico similar, teniendo en cuenta cómo se utiliza la función \textit{barplot()} cuando el argumento \textit{height} es una matriz. 
 
+	\end{problema}
+
+\newpage
+	\begin{problema}
+	Para representar gráficamente datos de variables discretas, especialmente cuando toman pocos valores diferentes, se puede utilizar un \textit{gráfico de bastones}. Por ejemplo, en la Figura~\ref{fig:bast} se muestra el número de visitas a la asosiación por paciente. 
+
+\begin{figure}[!ht]
+    \centering
+    
+    \fbox{\includegraphics[width=0.6\textwidth]{bast.png}}
+    \caption{Número de visitas por paciente}
+    \label{fig:bast}
+\end{figure}		
+	
+	\begin{parte}
+	Busque la documentación de la función genérica \textit{plot()}. Estudie los distintos gráficos que puede realizar a través del argumento \textit{type}.
+	\end{parte}
+	
+	\begin{parte}
+	Realice un gráfico de bastones similar al de la Figura~\ref{fig:bast} utlizando la función \textit{plot} y lo visto anteriormente. 
+	\end{parte}
+
+	\begin{parte}
+	Los gráficos de bastones suelen ir acompañados por  \textit{gráficos escalonados} que se utilizan para mostrar la distribución acumulada de una variable discreta. En la Figura~\ref{fig:bast2} se muestra el ejemplo correspondiente al caso trabajado. Confeccione dicho gráfico a través de la función \textit{plot()}.\\
+	
+	\noindent\fbox{%
+    \parbox{\textwidth}{%
+		 \textbf{Ayuda:} puede ser útil buscar la documentación de la función \textit{abline()} para agregar líneas punteadas de referencia.
+    }%
+}
+	\end{parte}
+
+\begin{figure}[!ht]
+    \centering
+    
+    \fbox{\includegraphics[width=0.6\textwidth]{bast2.png}}
+    \caption{Número de visitas por paciente}
+    \label{fig:bast2}
+\end{figure}	
+	
+	\end{problema}
+	
+	\begin{problema}
+	En el caso de las variables continuas o discretas que asumen muchos valores distintos, suele utilizarse un \textit{histograma} para representarlas gráficamente. En la Figura~\ref{fig:hist} se puede ver el histograma correspondiente a la edad de los pacientes. \\
+	\textbf{Observación:} los intervalos etarios utilizados en el gráfico coinciden con los de la correspondiente tabla de frecuencias.
+\begin{figure}[!ht]
+    \centering
+    
+    \fbox{\includegraphics[width=0.6\textwidth]{hist.png}}
+    \caption{Edad de los pacientes}
+    \label{fig:hist}
+\end{figure}		
+	
+	\begin{parte}
+	Busque la documentación de la función \textit{hist()} y realice el gráfico anterior.\\
+	
+	\noindent\fbox{%
+    \parbox{\textwidth}{%
+		 \textbf{Ayuda:} puede ser útil buscar la documentación de la función \textit{axis()} para dibujar los ejes independientemente.
+    }%
+}
+	\end{parte}	
+	
+	\begin{parte}
+	Los histogramas suelen ir acompañados de dos gráficos auxiliares: el \textit{polígono de frecuencias} y el \textit{polígono acumulativo}. En la Figuras ~\ref{fig:hist2} y ~\ref{fig:hist3} se muestran dichos gráficos, respectivamente.
+
+\begin{figure}[!ht]
+    \centering
+    
+    \fbox{\includegraphics[width=0.6\textwidth]{hist2.png}}
+    \caption{Edad de los pacientes}
+    \label{fig:hist2}
+\end{figure}	
+
+\begin{figure}[!ht]
+    \centering
+    
+    \fbox{\includegraphics[width=0.6\textwidth]{hist3.png}}
+    \caption{Edad de los pacientes}
+    \label{fig:hist3}
+\end{figure}	
+
+	Teniendo en cuenta todas las funciones trabajadas anteriormente, utilice \textit{plot()} para realizar cada uno de los gráficos. Piense qué valor tomará el argumento \textit{type} en estos casos.
+
+	\end{parte}
+	
+	\end{problema}
+	
+	\begin{problema}
+	El \textit{boxplot} es un gráfico basado en los cinco números resumen de un conjunto de datos: el mínimo, el primer cuartil, la mediana, el tercer cuartil y el máximo. En la Figura ~\ref{fig:boxplot} se muestra un ejemplo de boxplot para la variable \textquotedblleft Edad \textquotedblright .
+
+\begin{figure}[!ht]
+    \centering
+    
+    \fbox{\includegraphics[width=0.6\textwidth]{boxplot.png}}
+    \caption{Edad de los pacientes}
+    \label{fig:boxplot}
+\end{figure}	
+
+
+	\begin{parte}
+	Busque la documentación de la función genérica \textit{summary()} si no lo hizo antes. Pruébela para cada columna de la base de datos. ¿Qué observa al calcular las medidas resúmenes de la variable \textquotedblleft Principal signo visible\textquotedblright ?
+	\end{parte}	
+	
+	\begin{parte}
+	Busque la documentación de la función \textit{boxplot()} y realice el gráfico de la 	Figura ~\ref{fig:boxplot}.
+	\end{parte}
+	
+	\begin{parte}
+	Los boxplots comparativos son muy útiles para la comparación gráfica de distribuciones en grupos
+distintos. En la Figura ~\ref{fig:boxplot2} se muestra un ejemplo para la edad según el sexo de los pacientes.
+
+\begin{figure}[!ht]
+    \centering
+    
+    \fbox{\includegraphics[width=0.6\textwidth]{boxplot2.png}}
+    \caption{Edad de los pacientes según el sexo}
+    \label{fig:boxplot2}
+\end{figure}	
+
+	El gráfico anterior puede ser generado nuevamente con la función \textit{boxplot}, utilizando el parámetro \textit{formula}. Hágalo.\\
+	
+	\noindent\fbox{%
+    \parbox{\textwidth}{%
+		 \textbf{Ayuda:} el parámetro \textit{formula} toma algo de la forma \textit{y $\thicksim$ grp}, donde \textit{y} es un vector numérico de datos que serán distribuidos en grupos, acordes a la variable \textit{grp} (usualmente un factor). 
+
+    }%
+}
+	
+	 
+	\end{parte}
+	
+	\end{problema}
+	
 \end{document}
