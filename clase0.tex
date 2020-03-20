@@ -50,7 +50,7 @@ Esta práctica fue realizada con el objetivo de que los estudiantes tengan un pr
 		
 		\noindent\fbox{%
     \parbox{\textwidth}{%
-    	\textbf{Ayuda:} puede ser útil buscar la documentación de la función \textit{read.table()}. ¿Qué argumentos toma? ¿De qué clase es lo que retorna?
+    	\textbf{Ayuda:} puede ser útil buscar la documentación de la función \texttt{read.table()}. ¿Qué argumentos toma? ¿De qué clase es lo que retorna?
     }%
 }	
 
@@ -59,11 +59,11 @@ Esta práctica fue realizada con el objetivo de que los estudiantes tengan un pr
     \end{problema}
 
     \begin{problema}
-	Una vez cargada la base de datos, se deben proveer formas de trabajar con las distintas variables. Una manera muy sencilla de acceder a todos los valores de una variable es a través del operador \textit{\$}:.
+	Una vez cargada la base de datos, se deben proveer formas de trabajar con las distintas variables. Una manera muy sencilla de acceder a todos los valores de una variable es a través del operador \texttt{\$}:.
 	\begin{verbatim}
 	    > dataframe_name$variable_name	
 	\end{verbatim}
-Sin embargo, la notación \$ puede no resultar tan conveniente. La función \textit{attach()} toma una base de datos (una lista o un  \textit{data frame}) como argumento y hace temporalmente visible sus componentes como variables. La función \textit{detach()} revierte dicho proceso.
+Sin embargo, la notación \$ puede no resultar tan conveniente. La función \texttt{attach()} toma una base de datos (una lista o un  \textit{data frame}) como argumento y hace temporalmente visible sus componentes como variables. La función \texttt{detach()} revierte dicho proceso.
 	\begin{verbatim}
 	    > attach(dataframe_name)
 	    > variable_name	
@@ -80,7 +80,7 @@ Sin embargo, la notación \$ puede no resultar tan conveniente. La función \tex
     \end{parte}
 
 	\begin{parte}
-		Utilizando la función \textit{class()}, averigue de qué clase es cada variable.   
+		Utilizando la función \texttt{class()}, averigue de qué clase es cada variable.   
     \end{parte}
 
 	\begin{parte}
@@ -88,7 +88,7 @@ Sin embargo, la notación \$ puede no resultar tan conveniente. La función \tex
 		
 	\noindent\fbox{%
     \parbox{\textwidth}{%
-		\textbf{Ayuda:} puede ser útil buscar la documentación de la función \textit{summary()}.
+		\textbf{Ayuda:} puede ser útil buscar la documentación de la función \texttt{summary()}.
     }%
 }	
 		
@@ -99,7 +99,7 @@ Sin embargo, la notación \$ puede no resultar tan conveniente. La función \tex
 			
 \noindent\fbox{%
     \parbox{\textwidth}{%
-	 \textbf{Ayuda:} puede ser útil buscar la documentación de las funciones \textit{summary(), sum(), length(), mean()}.
+	 \textbf{Ayuda:} puede ser útil buscar la documentación de las funciones \texttt{summary(), sum(), length(), mean()}.
     }%
 }			
 
@@ -131,7 +131,7 @@ Sin embargo, la notación \$ puede no resultar tan conveniente. La función \tex
 	
 \noindent\fbox{%
     \parbox{\textwidth}{%
-		 \textbf{Ayuda:} puede ser útil buscar la documentación de las funciones \textit{table(), cumsum(), cbind(), rbind(), round(), names()}.
+		 \textbf{Ayuda:} puede ser útil buscar la documentación de las funciones \texttt{table(), cumsum(), cbind(), rbind(), round(), names()}.
     }%
 }	
 	\end{parte}
@@ -141,7 +141,7 @@ Sin embargo, la notación \$ puede no resultar tan conveniente. La función \tex
 		
 		\noindent\fbox{%
     \parbox{\textwidth}{%
-		 \textbf{Ayuda:} puede ser útil buscar la documentación de las funciones \textit{cut(), table(), cumsum(), cbind(), rbind(), round(), names()}.
+		 \textbf{Ayuda:} puede ser útil buscar la documentación de las funciones\texttt{cut(), table(), cumsum(), cbind(), rbind(), round(), names()}.
     }%
 }	
 
@@ -163,7 +163,7 @@ Sin embargo, la notación \$ puede no resultar tan conveniente. La función \tex
 	
 \noindent\fbox{%
     \parbox{\textwidth}{%
- \textbf{Ayuda:} puede ser útil buscar la documentación de las funciones \textit{table(), apply(), cbind(), rbind()}.
+ \textbf{Ayuda:} puede ser útil buscar la documentación de las funciones \texttt{table(), apply(), cbind(), rbind()}.
     }%
 }	
 	
@@ -190,7 +190,7 @@ Además, R mantiene una lista de parámetros gráficos, los cuales pueden ser ma
 \end{figure}
 
 	\begin{parte}
-		Lea la documentación de la función \textit{pie()}. ¿Cuál es el significado de los argumentos \textit{x, labels, clockwise, init.angle} y \textit{main}?
+		Lea la documentación de la función \texttt{pie()}. ¿Cuál es el significado de los argumentos \texttt{x, labels, clockwise, init.angle} y \texttt{main}?
 	\end{parte}
 
 	\begin{parte}
@@ -202,13 +202,13 @@ Además, R mantiene una lista de parámetros gráficos, los cuales pueden ser ma
 		
 		\noindent\fbox{%
     \parbox{\textwidth}{%
-		 \textbf{Ayuda:} puede ser útil buscar la documentación de la función \textit{paste()}, y generar un nuevo vector de etiquetas que, además del nombre de cada categoría, contenga el porcentaje que corresponde a cada una.
+		 \textbf{Ayuda:} puede ser útil buscar la documentación de la función \texttt{paste()}, y generar un nuevo vector de etiquetas que, además del nombre de cada categoría, contenga el porcentaje que corresponde a cada una.
     }%
 }	
 	\end{parte}	
 	
 	\begin{parte}
-		Como se mencionó anteriormente, R provee funciones de graficado llamadas \textit{de bajo nivel} que permiten agregar más información a un gráfico ya existente, como líneas, puntos o etiquetas. Una de ellas es \textit{mtext}, utilizada para escribir texto en los márgenes de un gráfico. Busque la documentación de dicha función. ¿Cuaĺ es el significado de los argumentos \textit{text, side, line, at, adj, cex} y \textit{font}? 
+		Como se mencionó anteriormente, R provee funciones de graficado llamadas \textit{de bajo nivel} que permiten agregar más información a un gráfico ya existente, como líneas, puntos o etiquetas. Una de ellas es \texttt{mtext}, utilizada para escribir texto en los márgenes de un gráfico. Busque la documentación de dicha función. ¿Cuaĺ es el significado de los argumentos \texttt{text, side, line, at, adj, cex} y \texttt{font}? 
 	\end{parte}
 	
 	\begin{parte}
@@ -216,18 +216,18 @@ Además, R mantiene una lista de parámetros gráficos, los cuales pueden ser ma
 	\end{parte}
 	
 	\begin{parte}
-		Por último, R provee una función \textit{par()} utilizada para setear permanentemente o consultar todos los parámetros gráficos. Puede obtener una lista con sus nombres y valores simplemente haciendo:
+		Por último, R provee una función \texttt{par()} utilizada para setear permanentemente o consultar todos los parámetros gráficos. Puede obtener una lista con sus nombres y valores simplemente haciendo:
 		\begin{verbatim}
 		    > par()
 		\end{verbatim}
-	Si bien estos parámetros son muchos y no es necesario conocerlos todos, puede ser útil buscar entre ellos cuando se quiera modificar un aspecto particular de los gráficos. Por ejemplo, es posible que le sea conveniente cambiar los valores del parámetro \textit{mar}, para definir márgenes adecuados en sus gráficos. \\
+	Si bien estos parámetros son muchos y no es necesario conocerlos todos, puede ser útil buscar entre ellos cuando se quiera modificar un aspecto particular de los gráficos. Por ejemplo, es posible que le sea conveniente cambiar los valores del parámetro \texttt{mar}, para definir márgenes adecuados en sus gráficos. \\
 	
-	\textbf{Aclaración:} algunos parámetros específicos de \textit{par()} pueden pasarse directamente como parámetros en la llamada a la función de alto nivel que grafica. Por ejemplo, es válido hacer lo siguiente:
+	\textbf{Aclaración:} algunos parámetros específicos de \texttt{par()} pueden pasarse directamente como parámetros en la llamada a la función de alto nivel que grafica. Por ejemplo, es válido hacer lo siguiente:
 	\begin{verbatim}
 	    > pie(table(Sexo), cex = 0.7,...)
 	\end{verbatim}
 \medskip	
-	Busque la documentación de la función \textit{par()}. ¿Cuántos parámetros gráficos se pueden setear o consultar a través de ella? ¿Para qué sirve el parámetro \textit{cex}?
+	Busque la documentación de la función \texttt{par()}. ¿Cuántos parámetros gráficos se pueden setear o consultar a través de ella? ¿Para qué sirve el parámetro \texttt{cex}?
 	\end{parte}
 		
 	\begin{parte}	
@@ -248,7 +248,7 @@ Además, R mantiene una lista de parámetros gráficos, los cuales pueden ser ma
 \end{figure}	
 	
 	\begin{parte}
-		Lea la documentación de la función \textit{barplot()}. ¿Cuál es el significado de los argumentos \textit{height, horiz, xlab, ylab, xlim, cex.axis} y \textit{cex.names}?
+		Lea la documentación de la función \texttt{barplot()}. ¿Cuál es el significado de los argumentos \texttt{height, horiz, xlab, ylab, xlim, cex.axis} y \texttt{cex.names}?
 	\end{parte}	
 	
 	\begin{parte}
@@ -260,7 +260,7 @@ Además, R mantiene una lista de parámetros gráficos, los cuales pueden ser ma
 	
 	\noindent\fbox{%
     \parbox{\textwidth}{%
-		 \textbf{Ayuda:} puede ser útil buscar la documentación de la función \textit{order()}.
+		 \textbf{Ayuda:} puede ser útil buscar la documentación de la función \texttt{order()}.
     }%
 }	
 	\end{parte}
@@ -280,13 +280,14 @@ Además, R mantiene una lista de parámetros gráficos, los cuales pueden ser ma
     \label{fig:plot03}
 \end{figure}	
 
-	Realice un gráfico similar, teniendo en cuenta cómo se utiliza la función \textit{barplot()} cuando el argumento \textit{height} es una matriz. 
+	Realice un gráfico similar, teniendo en cuenta cómo se utiliza la función \texttt{barplot()} cuando el argumento \texttt{height} es una matriz. 
 
 	\end{problema}
 
-\newpage
+	\newpage
+	
 	\begin{problema}
-	Para representar gráficamente datos de variables discretas, especialmente cuando toman pocos valores diferentes, se puede utilizar un \textit{gráfico de bastones}. Por ejemplo, en la Figura~\ref{fig:bast} se muestra el número de visitas a la asosiación por paciente. 
+	Para representar gráficamente datos de variables discretas, especialmente cuando toman pocos valores diferentes, se puede utilizar un \textit{gráfico de bastones}. Por ejemplo, en la Figura~\ref{fig:bast} se muestra un gráfico de bastones corresopndiente al número de visitas a la asosiación por paciente. 
 
 \begin{figure}[!ht]
     \centering
@@ -297,19 +298,25 @@ Además, R mantiene una lista de parámetros gráficos, los cuales pueden ser ma
 \end{figure}		
 	
 	\begin{parte}
-	Busque la documentación de la función genérica \textit{plot()}. Estudie los distintos gráficos que puede realizar a través del argumento \textit{type}.
+	Busque la documentación de la función \texttt{plot()}. Observe que la descripción dice \textquotedblleft Función genérica para graficar objetos de R\textquotedblright . La idea de \textit{función genérica} implica, en este caso, que el tipo de gráfico generado por \texttt{plot()} dependerá del tipo o clase de su primer argumento. A continuación, se presentan algunos ejemplos de posibles llamadas:
+	\begin{itemize}
+	\item \texttt{plot(x, y)}: si \texttt{x} e \texttt{y} son vectores, el resultado será un diagrama de dispersión \footnote{Un diagrama de dispersión es un gráfico que utiliza las coordenadas cartesianas para mostrar los valores de dos variables para un conjunto de datos.}
+	\item \texttt{plot(f)}: si \texttt{f} es un factor, entonces generará un gráfico de barras.
+	\item \texttt{plot(f,y)}: si \texttt{f} es un factor e \texttt{y}, un vector numérico, la llamada producirá un \textit{boxplot comparativo}\footnote{Vea el ejercicio 10.}.
+	\end{itemize}		
+	A su vez, \texttt{plot()} cuenta con un parámetro \texttt{type}. Estudie los distintos gráficos que puede realizar a través de dicho argumento.
 	\end{parte}
 	
 	\begin{parte}
-	Realice un gráfico de bastones similar al de la Figura~\ref{fig:bast} utlizando la función \textit{plot} y lo visto anteriormente. 
+	Realice un gráfico de bastones similar al de la Figura~\ref{fig:bast} utlizando la función \texttt{plot()} y lo visto anteriormente. 
 	\end{parte}
 
 	\begin{parte}
-	Los gráficos de bastones suelen ir acompañados por  \textit{gráficos escalonados} que se utilizan para mostrar la distribución acumulada de una variable discreta. En la Figura~\ref{fig:bast2} se muestra el ejemplo correspondiente al caso trabajado. Confeccione dicho gráfico a través de la función \textit{plot()}.\\
+	Los gráficos de bastones suelen ir acompañados por  \textit{gráficos escalonados} que se utilizan para mostrar la distribución acumulada de una variable discreta. En la Figura~\ref{fig:bast2} se muestra el ejemplo correspondiente al caso trabajado. Confeccione dicho gráfico a través de la función \texttt{plot()}.\\
 	
 	\noindent\fbox{%
     \parbox{\textwidth}{%
-		 \textbf{Ayuda:} puede ser útil buscar la documentación de la función \textit{abline()} para agregar líneas punteadas de referencia.
+		 \textbf{Ayuda:} puede ser útil buscar la documentación de la función \texttt{abline()} para agregar líneas punteadas de referencia.
     }%
 }
 	\end{parte}
@@ -336,58 +343,62 @@ Además, R mantiene una lista de parámetros gráficos, los cuales pueden ser ma
 \end{figure}		
 	
 	\begin{parte}
-	Busque la documentación de la función \textit{hist()} y realice el gráfico anterior.\\
+	Busque la documentación de la función \texttt{hist()}. ¿Para qué sirven los argumentos \texttt{breaks} y \texttt{right}? Utilice dicha función para generar el histograma presentado anteriormente.\\
 	
 	\noindent\fbox{%
     \parbox{\textwidth}{%
-		 \textbf{Ayuda:} puede ser útil buscar la documentación de la función \textit{axis()} para dibujar los ejes independientemente.
+		 \textbf{Ayuda:} puede ser útil buscar la documentación de la función \texttt{axis()} para dibujar los ejes independientemente.
     }%
 }
 	\end{parte}	
 	
 	\begin{parte}
-	Los histogramas suelen ir acompañados de dos gráficos auxiliares: el \textit{polígono de frecuencias} y el \textit{polígono acumulativo}. En la Figuras ~\ref{fig:hist2} y ~\ref{fig:hist3} se muestran dichos gráficos, respectivamente.
+	Los histogramas suelen ir acompañados de dos gráficos auxiliares: el \textit{polígono de frecuencias} y el \textit{polígono acumulativo}. En la Figura ~\ref{fig:hist23} se muestran dichos gráficos.
 
 \begin{figure}[!ht]
     \centering
-    
-    \fbox{\includegraphics[width=0.6\textwidth]{hist2.png}}
+    \subfloat[Polígono de frecuencias]
+    {
+        \fbox{\includegraphics[width=0.45\textwidth]{hist2.png}}
+    }
+    \subfloat[Polígono acumulativo]
+    {
+        \fbox{\includegraphics[width=0.45\textwidth]{hist3.png}}
+    }
     \caption{Edad de los pacientes}
-    \label{fig:hist2}
-\end{figure}	
+    \label{fig:hist23}
+\end{figure}
 
-\begin{figure}[!ht]
-    \centering
-    
-    \fbox{\includegraphics[width=0.6\textwidth]{hist3.png}}
-    \caption{Edad de los pacientes}
-    \label{fig:hist3}
-\end{figure}	
-
-	Teniendo en cuenta todas las funciones trabajadas anteriormente, utilice \textit{plot()} para realizar cada uno de los gráficos. Piense qué valor tomará el argumento \textit{type} en estos casos.
+	Teniendo en cuenta todas las funciones trabajadas anteriormente, utilice \texttt{plot()} para realizar cada uno de los gráficos. Piense qué valor tomará el argumento \texttt{type} en estos casos.
 
 	\end{parte}
 	
 	\end{problema}
-	
+
 	\begin{problema}
 	El \textit{boxplot} es un gráfico basado en los cinco números resumen de un conjunto de datos: el mínimo, el primer cuartil, la mediana, el tercer cuartil y el máximo. En la Figura ~\ref{fig:boxplot} se muestra un ejemplo de boxplot para la variable \textquotedblleft Edad \textquotedblright .
 
 \begin{figure}[!ht]
     \centering
     
-    \fbox{\includegraphics[width=0.6\textwidth]{boxplot.png}}
+    \fbox{\includegraphics[width=0.55\textwidth]{boxplot.png}}
     \caption{Edad de los pacientes}
     \label{fig:boxplot}
 \end{figure}	
 
-
 	\begin{parte}
-	Busque la documentación de la función genérica \textit{summary()} si no lo hizo antes. Pruébela para cada columna de la base de datos. ¿Qué observa al calcular las medidas resúmenes de la variable \textquotedblleft Principal signo visible\textquotedblright ?
+	Busque la documentación de la función \texttt{summary()} si no lo hizo antes. Pruébela para cada columna de la base de datos. Compare los resultados para las variables \textquotedblleft Sexo \textquotedblright y \textquotedblleft Número de visitas \textquotedblright . ¿Por qué cree que calcula diferentes medidas en ambos casos? ¿Qué observa al calcular las medidas resúmenes de la variable \textquotedblleft Principal signo visible\textquotedblright ?\\
+	
+		\noindent\fbox{%
+    \parbox{\textwidth}{%
+		 El comportamiento anterior se debe a que \texttt{summary()} es una \textit{función genérica}. Como se vio en un ejercicio previo, en R, este tipo de funciones determina la clase de su argumento y usa dicha información para seleccionar el método apropiado. Así, por ejemplo, \texttt{summary()} calcula distintas medidas resúmenes según si el argumento es una variable cualitativa (en general, asociada a un factor) o cuantitativa. Sin embargo, es importante notar que siempre se deben analizar los resultados que devuelve.
+    }%
+}\\
+	
 	\end{parte}	
 	
 	\begin{parte}
-	Busque la documentación de la función \textit{boxplot()} y realice el gráfico de la 	Figura ~\ref{fig:boxplot}.
+	Busque la documentación de la función \texttt{boxplot()} y realice el gráfico de la 	Figura ~\ref{fig:boxplot}.
 	\end{parte}
 	
 	\begin{parte}
@@ -397,22 +408,22 @@ distintos. En la Figura ~\ref{fig:boxplot2} se muestra un ejemplo para la edad s
 \begin{figure}[!ht]
     \centering
     
-    \fbox{\includegraphics[width=0.6\textwidth]{boxplot2.png}}
+    \fbox{\includegraphics[width=0.55\textwidth]{boxplot2.png}}
     \caption{Edad de los pacientes según el sexo}
     \label{fig:boxplot2}
-\end{figure}	
+\end{figure}		 
+	\end{parte}
 
-	El gráfico anterior puede ser generado nuevamente con la función \textit{boxplot}, utilizando el parámetro \textit{formula}. Hágalo.\\
+	El gráfico anterior puede ser generado nuevamente con la función \texttt{boxplot()}, utilizando el parámetro \texttt{formula}. Hágalo.\\
 	
 	\noindent\fbox{%
     \parbox{\textwidth}{%
-		 \textbf{Ayuda:} el parámetro \textit{formula} toma algo de la forma \textit{y $\thicksim$ grp}, donde \textit{y} es un vector numérico de datos que serán distribuidos en grupos, acordes a la variable \textit{grp} (usualmente un factor). 
+		 \textbf{Ayuda:} el parámetro \texttt{formula} toma algo de la forma \textit{y $\thicksim$ grp}, donde \texttt{y} es un vector numérico de datos que serán distribuidos en grupos, acordes a la variable \texttt{grp} (usualmente un factor). 
 
     }%
 }
 	
-	 
-	\end{parte}
+
 	
 	\end{problema}
 	
