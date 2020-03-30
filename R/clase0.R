@@ -1,16 +1,22 @@
 anorexia <- read.table(file = "anorexia.data", sep = "\t", header = TRUE)
-
 names(anorexia)[4] = "Visitas"
+anorexia$Signo <- as.factor(anorexia$Signo)
+levels(anorexia$Signo) = c("Dieta severa", "Principal signo visible", "Uso de laxantes", "Uso de ropa holgada")
+attach(anorexia)
 #getwd()
 #setwd("/home/gabina/Facultad/Probabilidad y Estadísitca/2020")
 #read.table("anorexia.data",sep="\t")
 
-#tabla1 <- table(anorexia$Signo,anorexia$Sexo)
+tabla1 <- table(Signo,Sexo)
 #sum(tabla1)
-attach(anorexia)
+
 
 t <- rbind(table(Signo,Sexo),apply(tabla1, 2,FUN = sum))
-cbind(t, apply(t,1,FUN=sum))
+t <- cbind(t, apply(t,1,FUN=sum))
+colnames(t)[3] = "Total"
+rownames(t)[5] = "Total"
+t <- as.data.frame(t)
+names(t)
 
 vis <- table(Visitas)
 vis <- as.data.frame(vis)
@@ -42,7 +48,7 @@ mtext(side=3,"PRINCIPAL SIGNO VISIBLE EN PACIENTES CON ANOREXIA\n ARGENTINA, OCT
 mtext(side=1,"Fuente: Asociación de Lucha contra la Bulimia y la Anorexia" , line = -1, at=-0.8, cex = 0.6)
 
 #barplot
-#par(mar=c(3.5,8,2.5,4))
+par(mar=c(3.5,8,2.5,4))
 barplot(table(SignoOrdered),xlab = "Número de pacientes", horiz = TRUE,xlim = c(0,20),las = 1, adj = 0.5, cex.main = 0.8,cex.axis = 0.8, cex.lab = 0.8,mgp = c(1.5,0,0.5), tck = 0.05, cex.names = 0.7, font.lab=2, col = "thistle",width = c(0.01,0.01,0.01,0.01))
 mtext(side = 3, text = "PRINCIPAL SIGNO VISIBLE EN PACIENTES CON ANOREXIA\n ARGENTINA, OCTUBRE 2012", line = 0.25, font = 2, cex = 0.8, at=7)
 mtext(side = 2, text = "Signo", line = 6.5, font = 2, cex = 0.8)
