@@ -1,0 +1,102 @@
+\documentclass{../prob}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[spanish,activeacute]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{latexsym}
+\usepackage{verbatim}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{hyperref} % \url
+\usepackage{subfig} % \subfloat
+\usepackage{ textcomp }
+
+% tikz
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,fit,backgrounds,calc,intersections}
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+% scale tikz
+\usepackage{tikzscale}
+
+\logo{../unr2}
+\trabprac{\\ Estadística Descriptiva}
+
+
+\newcommand{\real}{\mathbb{R}}
+\newcommand{\nat}{\mathbb{N}}
+
+
+\begin{document}
+\maketitle
+
+\section*{Objetivo}
+Lograr que el estudiante aplique las herramientas adquiridas durante el curso sobre estadística descriptiva en un conjunto de datos reales, haciendo uso de un software apropiado.
+	
+\section*{Presentación}
+El trabajo se realizará individualmente o en grupos de dos alumnos. Una vez levantada la cuarentena, cada grupo debe presentar una copia impresa, dentro de un folio en la fecha que la cátedra determinará. Debe incluir una carátula donde conste el nombre de los integrantes y las correspondientes firmas. Mientras tanto, el informe será entregado virtualmente a través de la plataforma utilizada para la materia.\\
+Para lograr la regularización, el trabajo práctico debe estar aprobado. De acuerdo a las correcciones que se realicen, puede requerirse la defensa en forma oral por uno o más de los integrantes de los grupos en el caso de que se considere necesario. Tener en cuenta que la evaluación es individual.	
+
+\section*{Descripción del problema}
+La contaminación del aire representa un importante riesgo medioambiental para la salud. Se estima que, en los países menos desarrollados, cerca de la tercera parte de las muertes y enfermedades se deben directamente a causas ambientales. Un ambiente más saludable permitiría reducir considerablemente la incidencia de cánceres, enfermedades cardiovasculares, asma, infecciones de las vías respiratorias, entre otros padecimientos que producen millones de muertes por año. Esto representa actualmente uno de los mayores riesgos sanitarios mundiales, comparable con el tabaco y sólo superado por los riesgos sanitarios relacionados con la hipertensión y la nutrición. \\
+Ahora bien, los árboles en general, y el arbolado urbano en particular, cumplen un papel relevante en la lucha contra la contaminación del aire. En principio, reducen dicha contaminación porque absorben los componentes gaseosos tóxicos, principalmente el CO2, al que transforman en oxígeno para su posterior liberación a la atmósfera. Paralelamente, este proceso transformador de CO2 es mencionado en el Protocolo de Kyoto como el motor de la reducción del calentamiento global y del efecto invernadero.
+Particularmente, hay árboles y arbustos que reducen la contaminación interceptando pequeñas partículas del aire, otros que atraen insectos que favorecen la polinización, así como también hay especies que sombrean mayores superficies propiciando un descenso de la temperatura urbana. \\
+Por los motivos enunciados, en el año 2011 se realizó un Censo Forestal Urbano Público en dos comunas del sur de Buenos Aires, con el objetivo de contabilizar y determinar el estado actual del arbolado urbano público.\\
+
+\section*{Variables registradas}
+Las variables incluidas en la base de datos se describen a continuación.
+
+\begin{center}
+    \begin{tabular}{ | l | p{12cm} |}
+    \hline
+    \textbf{Nombre} &  \textbf{Descripción} \\ \hline
+    ID & Identificación del árbol.\\ \hline
+    altura & Altura de cada árbol, medida en metros (m). Observación: si un árbol mide 12,7 m se tomará como dato \textquotedblleft 12\textquotedblright, truncando los valores a la unidad. \\ \hline
+    diámetro & Diámetro de cada árbol, medido en centímetros (cm). \\ \hline
+    inclinación & Ángulo que forma el tronco del árbol respecto a una perpendicular al suelo, medido en grados (\textdegree). Indica el grado de inclinación del árbol.\\ \hline
+    especie & Especie a la que pertenece el árbol, dentro de las siguientes categorías: Eucalipto, Jacarandá, Palo borracho, Casuarina, Fresno, Ceibo, Ficus, Álamo, Acacia. \\ \hline
+    origen & Procedencia de la especie: Exótico, Nativo/Autóctono, No Determinado. \\ \hline
+    brotes & Número de brotes jóvenes crecidos durante el último año. \\ \hline
+    \end{tabular}
+\end{center}
+
+\section*{Consigna}
+Elabore un informe que refleje las características más notables acerca de los datos brindados. Para llevar esto a cabo deberá utilizar un software estadístico que le permita efectuar un estudio descriptivo que incluya: tablas de distribución de frecuencias, gráficos y medidas descriptivas. \\
+Incluya un gráfico donde realice un análisis comparativo de una variable según los niveles de otra.\\
+Redacte un breve informe, a modo de conclusión, acerca de los resultados obtenidos en el análisis.\\
+Trabaje teniendo en mente que el informe lo leerá quien está interesado en analizar los datos presentados y no los docentes. Es interesante ejercitar una primera aproximación a la forma en la cual se resumen los datos en la práctica profesional.
+
+\newpage
+
+\section*{Recomendaciones generales para la elaboración del informe de resultados}
+La  elaboración  de  un informe  escrito  es  fundamental  para  comunicar  los  resultados obtenidos  en  una  investigación. Este  informe, como  elemento  de  comunicación, debe poseer una serie de características para que cumpla con su cometido primordial. Estas características van   desde   su   presentación   visual   (ordenado   y   legible),   pasando   por   los   elementos estructurales fundamentales como la lógica  de presentación, la exposición de ideas, la calidad de  las  fuentes  mencionadas  y  la  interpretación  de  los  datos. En  particular, debe  poseer  al menos dos características esenciales: a) que  las personas a las que  va dirigido lo lean porque es  bueno y consistente; b) que  otras personas, que  no necesariamente sean especializadas  en la materia de la que trata el documento, lo puedan comprender sin mayores dificultades.\\
+
+Las   características   globales   mencionadas   abarcan   una   serie   de   recomendaciones especiales. A continuación, se mencionan algunas de ellas:
+\begin{itemize}
+	\item La  redacción  de  los  informes,  en  general, se  hace  de  forma  impersonal,  sin acudir  a  las primeras  personas(en  lugar  de  \textquotedblleft podemos  ver\textquotedblright,  decir \textquotedblleft se  puede ver\textquotedblright ; en lugar de \textquotedblleft observamos\textquotedblright , \textquotedblleft se observa\textquotedblright ;  etc.). Utilizar un lenguaje técnico dota  al  escrito  de  claridad  y  precisión. La  tercera  persona  es  un  componente clave de  la  escritura académica,  ya que es  una voz  que pretende  transmitir un punto de vista objetivo.
+	\item En cuanto a la forma de presentación, es necesario mantener un mismo formato a  lo  largo  de  todo  el  trabajo.  Esto  incluye  desde  el  tipo  o  tamaño  de  letra durante  la  redacción,  el  uso  de  sangría,  ajuste  de  párrafo  y  el  interlineado, entre otras cuestiones. Lo mismo debe ocurrir con los gráficos y con las tablas. Por  ejemplo,  si  se  decide  indicar  con  \textquotedblleft Cantidad  de  personas\textquotedblright  a  la  frecuencia absoluta,  se debe usar la misma denominación en todo el trabajo para que  sea uniforme.  Lo  mismo  sucede  al  trabajar  con  números  decimales,  donde  es menester determinar pautas sobre la cantidad de decimales que se decide usar. El objetivo es que exista consistencia a lo largo del informe.
+\end{itemize}
+
+Particularmente  al  hablar  de  la  descripción  de  datos  a  través  de  tablas  y  gráficos, los títulos, las fuentes y los nombres de los ejes juegan un rol fundamental, ya que depende de ellos la claridad con la que se transmite la información. Se recomienda que a lo largo del trabajo sea uniforme la forma de redacción y el formato, teniendo en cuenta las siguientes características:
+\begin{itemize}
+\item Los títulos deben responder a las preguntas qué, cómo, cuándo y dónde fueron recopilados  los  datos  (por  ejemplo:  Distribución  de  los  encuestados  según  la franja horaria en la que realizaron su viaje. Rosario, año 2008). 
+\item Las fuentes deben  indicar  de dónde  provienen los  datos que se presentan (por ejemplo:  \textquotedblleft Fuente:  elaboración  propia  a  partir  de  datos  suministrados  por  la Municipalidad  de  Rosario\textquotedblright ).  Como  alternativa, la  fuente  de  obtención  de  los datos puede ser indicada al comienzo del trabajo  y entonces no hace falta que figure al pie de cada tabla o figura. 
+\item En  los  gráficos,  cada eje debe  contar  con  su  nombre  y  la  unidad  de  medida correspondiente.
+\end{itemize}
+
+Por su  parte, las tablas deben llevar  una fila con el  encabezado de  las  columnas y una fila de totales, y en la primera columna deben aparecer los valores que toma la variable o bien los  niveles  que la  constituyen.  Es  fundamental que  estos  valores  se  expresenen  términos  del problema, y que no se utilicen las etiquetas o códigos con los que fueron ingresados en la base de datos (\textquotedblleft Femenino\textquotedblright , \textquotedblleft Masculino\textquotedblright en lugar de \textquotedblleft 1\textquotedblright , \textquotedblleft 2\textquotedblright , por ejemplo). Las cantidades dentro de las tablas deben alinearse a la derecha. Debe analizarse siempre de antemano la naturaleza de cada  variable,  el  tipo  de  valores  que puede  tomar, qué  representa  la  misma y usar  la  lógica  y los  conocimientos  adquiridos  durante  el  cursado  para  determinar  el  tipo  de  análisis  que  se debe aplicar en cada caso.\\
+
+Las  variables  cuantitativas  en  general  son  susceptibles  de un  análisis  más amplio que las  variables  cualitativas.  Permiten  gran  variedad  de  medidas  resumen,  pero  ¡ojo!:  deben emplearse  medidas  que  se  correspondan  con  la  forma  de  la  distribución  de  la  variable.  A  su vez,  permiten  los  cálculos  de  distribuciones  acumuladas,  que  pueden  aportar  información enriquecedora.\\
+
+No  es necesaria  la interpretación de una fila de la tabla,  sino  más  bien  se  prefiere  una interpretación  global  de  la  tabla  presentada  (por  ejemplo,  se  puede  hablar  en  general  de  la forma   de   la   distribución   si   la   variable   lo   permite,   o   de   las medidas   descriptivas correspondientes para cada caso, o resaltar algunas frecuencias que resulten llamativas, si las hay, etc).\\
+
+Para  las  variables  cuantitativas  continuas,  debe  haber  correspondencia  entre  la tabla de  distribución  de  frecuencias,  el  histograma  y  el  gráfico  acumulativo en  lo  que  respecta  a  la amplitud de los intervalos elegidos.\\
+
+Como paso final, es importante la lectura del informe, intentando realizar una revisión crítica  sobre  lo  ya  hecho.  Deben  revisarse  todas  las  pautas  que  fueron  propuestas  como consignas y recomendaciones, y también aquellas que hayan surgido con el criterio propio o el consenso del grupo de autores.
+\end{document}
