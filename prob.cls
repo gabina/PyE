@@ -77,6 +77,11 @@
 	\datosfalse
 }
 
+\newcommand{\trabprac}[1]{%
+	\title{Trabajo Pr\'actico #1}
+	\date{}
+	\datosfalse
+}
 
 \newcommand{\practicalab}[1]{%
 	\title{Pr\'actica de Laboratorio #1}
